@@ -1,26 +1,26 @@
 import { useEffect, useState } from 'react'
 import Select from 'react-select';
 import style from './Content.module.scss'
+import { languagesDetails, languagesOptions } from '../../shared/data';
+import Info from '../Info/Info';
 
 const Content = () => {
 
   const [selectValue, setSelectValue] = useState(null);
 
-  // const handleChangeSelect = (value) => {
-  //   setSelectValue(value)
-  // }
+  const handleChangeSelect = (value) => {
+    setSelectValue(value)
+  }
 
-  // const selectedLanguage = selectValue && 
-  //   languagesDetails.find(el => el.value === selectValue.value)
+  const selectedLanguage = selectValue && 
+    languagesDetails.find(el => el.value === selectValue.value)
 
   return (
     <div className={style.content}>
       <h1 className={style.title}>
         Here you can get information about some programming languages
       </h1>
-
-      <p>fdf</p>
-      {/* <div className={style.info}>
+      <div className={style.info}>
         <Select
           placeholder="Choose a programming language"
           name="color"
@@ -36,7 +36,7 @@ const Content = () => {
           selectedLanguage &&
           <Info selectedLanguage={selectedLanguage}/>
         }
-      </div> */}
+      </div>
     </div>
   )
 }
